@@ -1,0 +1,95 @@
+<header class="life-header">
+  <div>
+    <span class="page-eyebrow">LIVING PIXEL SPACE</span>
+    <h1>Petey Life</h1>
+    <p id="life-persona">Loading Petey's room…</p>
+  </div>
+  <div class="life-presence" aria-live="polite">
+    <span class="life-presence-dot"></span>
+    <span id="life-status">Waking up</span>
+  </div>
+</header>
+
+<div class="life-content">
+  <nav class="life-modes" aria-label="Petey Life mode">
+    <button type="button" class="life-mode active" data-life-mode="peek">Peek</button>
+    <button type="button" class="life-mode" data-life-mode="direct">Direct</button>
+    <button type="button" class="life-mode" data-life-mode="build">Build</button>
+  </nav>
+
+  <div class="life-layout">
+    <main class="life-stage-card">
+      <div class="life-stage" id="life-stage">
+        <canvas id="life-canvas" aria-label="Petey's editable pixel house"></canvas>
+        <div id="life-bubble" class="life-bubble" hidden></div>
+        <div class="life-stage-label">
+          <strong id="life-activity">Looking around</strong>
+          <span id="life-hint">Petey is at home</span>
+        </div>
+      </div>
+    </main>
+
+    <aside class="life-sidebar">
+      <section class="life-panel" data-life-panel="peek">
+        <span class="page-eyebrow">PEEK IN</span>
+        <h2>Let Petey live</h2>
+        <p>His active persona chooses small activities while this page is open.</p>
+        <label class="life-toggle-row">
+          <span><strong>Autonomy</strong><small>Ask Petey what to do next</small></span>
+          <input id="life-autonomy" type="checkbox">
+        </label>
+        <label class="life-field">Time between choices
+          <select id="life-interval">
+            <option value="15">15 seconds</option>
+            <option value="30">30 seconds</option>
+            <option value="45">45 seconds</option>
+            <option value="60">1 minute</option>
+            <option value="120">2 minutes</option>
+            <option value="300">5 minutes</option>
+          </select>
+        </label>
+        <button id="life-next" class="primary-button" type="button">Choose next activity</button>
+        <p class="life-note">Each choice uses your configured chat model. Autonomy pauses when you leave this page.</p>
+      </section>
+
+      <section class="life-panel" data-life-panel="direct" hidden>
+        <span class="page-eyebrow">DIRECT</span>
+        <h2>Tell Petey what to do</h2>
+        <p>Give Petey a natural instruction using the things available in his room.</p>
+        <form id="life-command-form">
+          <label class="life-field">Instruction
+            <textarea id="life-command" maxlength="500" rows="4" placeholder="Make coffee, then relax on the sofa."></textarea>
+          </label>
+          <button class="primary-button" type="submit">Send to Petey</button>
+        </form>
+        <div class="life-suggestions" aria-label="Example instructions">
+          <button type="button" data-life-command="Make some coffee">Make coffee</button>
+          <button type="button" data-life-command="Go use the computer">Use computer</button>
+          <button type="button" data-life-command="Relax on the sofa">Relax</button>
+        </div>
+      </section>
+
+      <section class="life-panel" data-life-panel="build" hidden>
+        <span class="page-eyebrow">BUILD</span>
+        <h2>Change the room</h2>
+        <p>Choose an item, then tap an empty tile. Tap an existing item to select it.</p>
+        <label class="life-field">Item
+          <select id="life-object-kind"></select>
+        </label>
+        <label class="life-field">Label
+          <input id="life-object-label" maxlength="60" placeholder="My favorite chair">
+        </label>
+        <div class="life-build-actions">
+          <button id="life-place" class="primary-button" type="button">Place item</button>
+          <button id="life-remove" class="secondary-button" type="button" disabled>Remove selected</button>
+        </div>
+        <p id="life-build-status" class="life-note" role="status">Select Place item, then choose a tile.</p>
+      </section>
+
+      <section class="life-journal">
+        <div class="life-journal-heading"><span class="page-eyebrow">TODAY</span><span id="life-event-count"></span></div>
+        <ol id="life-events"><li>Petey has not done anything yet.</li></ol>
+      </section>
+    </aside>
+  </div>
+</div>

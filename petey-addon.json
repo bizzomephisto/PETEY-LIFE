@@ -1,0 +1,15 @@
+{
+  "api_version": 1,
+  "id": "petey-life",
+  "name": "Petey Life",
+  "version": "0.1.0",
+  "description": "Watch Petey live in an editable pixel house driven by his active persona.",
+  "entrypoint": "addon.py",
+  "panel": "panel.html",
+  "script": "panel.js",
+  "stylesheet": "panel.css",
+  "navigation": {
+    "label": "Petey Life",
+    "icon": "▦"
+  }
+}

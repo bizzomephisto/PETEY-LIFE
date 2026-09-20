@@ -1,0 +1,82 @@
+[data-addon-id="petey-life"] {
+  --life-ink: #f7f2ff;
+  --life-muted: #b8aec7;
+  --life-line: rgba(197, 170, 255, .18);
+  --life-panel: rgba(24, 20, 32, .86);
+  --life-violet: #aa7cf7;
+  --life-mint: #75d7ad;
+  overflow: auto;
+  background:
+    radial-gradient(circle at 65% 15%, rgba(112, 69, 165, .14), transparent 30rem),
+    var(--page-bg, #07060a);
+}
+
+[data-addon-id="petey-life"] .life-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem clamp(1rem, 3vw, 2.5rem) 1rem;
+}
+
+[data-addon-id="petey-life"] .life-header h1 { margin: .15rem 0; color: var(--life-ink); }
+[data-addon-id="petey-life"] .life-header p { margin: 0; color: var(--life-muted); }
+[data-addon-id="petey-life"] .life-presence { display: flex; align-items: center; gap: .55rem; color: var(--life-muted); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+[data-addon-id="petey-life"] .life-presence-dot { width: .55rem; height: .55rem; border-radius: 50%; background: var(--life-mint); box-shadow: 0 0 14px var(--life-mint); }
+[data-addon-id="petey-life"] .life-presence.busy .life-presence-dot { background: #f4bd6c; box-shadow: 0 0 14px #f4bd6c; animation: life-pulse 1s infinite alternate; }
+
+[data-addon-id="petey-life"] .life-content { padding: 0 clamp(1rem, 3vw, 2.5rem) 2.5rem; }
+[data-addon-id="petey-life"] .life-modes { width: max-content; max-width: 100%; display: flex; gap: .25rem; padding: .25rem; margin-bottom: 1rem; border: 1px solid var(--life-line); border-radius: 999px; background: rgba(255,255,255,.035); }
+[data-addon-id="petey-life"] .life-mode { min-width: 5.7rem; padding: .62rem 1rem; border: 0; border-radius: 999px; color: var(--life-muted); background: transparent; cursor: pointer; font: inherit; }
+[data-addon-id="petey-life"] .life-mode.active { color: #130e19; background: var(--life-violet); box-shadow: 0 7px 24px rgba(170,124,247,.22); }
+
+[data-addon-id="petey-life"] .life-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(17rem, 21rem); gap: 1rem; align-items: start; }
+[data-addon-id="petey-life"] .life-stage-card { min-width: 0; padding: .55rem; border: 1px solid var(--life-line); border-radius: 1.15rem; background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.015)); box-shadow: 0 24px 70px rgba(0,0,0,.3); }
+[data-addon-id="petey-life"] .life-stage { position: relative; min-height: 33rem; overflow: hidden; border-radius: .8rem; background: #171221; }
+[data-addon-id="petey-life"] canvas { display: block; width: 100%; height: 100%; min-height: 33rem; image-rendering: pixelated; touch-action: manipulation; cursor: default; }
+[data-addon-id="petey-life"] .life-stage.building canvas { cursor: crosshair; }
+[data-addon-id="petey-life"] .life-stage-label { position: absolute; left: .8rem; bottom: .8rem; display: flex; flex-direction: column; max-width: calc(100% - 1.6rem); padding: .55rem .75rem; border: 1px solid rgba(255,255,255,.12); border-radius: .7rem; color: var(--life-ink); background: rgba(10,8,14,.78); backdrop-filter: blur(8px); pointer-events: none; }
+[data-addon-id="petey-life"] .life-stage-label span { margin-top: .12rem; color: var(--life-muted); font-size: .78rem; }
+[data-addon-id="petey-life"] .life-bubble { position: absolute; z-index: 3; max-width: 15rem; padding: .55rem .7rem; border-radius: .75rem .75rem .75rem .2rem; color: #21172e; background: #fbf7ff; box-shadow: 0 8px 25px rgba(0,0,0,.28); font-size: .84rem; line-height: 1.25; pointer-events: none; }
+
+[data-addon-id="petey-life"] .life-sidebar { display: grid; gap: 1rem; }
+[data-addon-id="petey-life"] .life-panel,
+[data-addon-id="petey-life"] .life-journal { padding: 1.1rem; border: 1px solid var(--life-line); border-radius: 1rem; background: var(--life-panel); }
+[data-addon-id="petey-life"] .life-panel h2 { margin: .25rem 0 .45rem; color: var(--life-ink); font-size: 1.1rem; }
+[data-addon-id="petey-life"] .life-panel > p { margin: 0 0 1rem; color: var(--life-muted); font-size: .88rem; line-height: 1.45; }
+[data-addon-id="petey-life"] .life-field { display: grid; gap: .4rem; margin: .85rem 0; color: var(--life-muted); font-size: .82rem; }
+[data-addon-id="petey-life"] .life-field :is(input, select, textarea) { box-sizing: border-box; width: 100%; padding: .68rem .72rem; border: 1px solid var(--life-line); border-radius: .65rem; color: var(--life-ink); background: rgba(255,255,255,.045); font: inherit; resize: vertical; }
+[data-addon-id="petey-life"] .life-toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .75rem 0; color: var(--life-ink); }
+[data-addon-id="petey-life"] .life-toggle-row span { display: grid; }
+[data-addon-id="petey-life"] .life-toggle-row small { margin-top: .15rem; color: var(--life-muted); }
+[data-addon-id="petey-life"] .life-toggle-row input { width: 1.15rem; height: 1.15rem; accent-color: var(--life-violet); }
+[data-addon-id="petey-life"] .life-panel button { width: 100%; }
+[data-addon-id="petey-life"] .life-note { margin: .75rem 0 0 !important; font-size: .75rem !important; color: var(--life-muted) !important; }
+[data-addon-id="petey-life"] .life-suggestions { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .8rem; }
+[data-addon-id="petey-life"] .life-suggestions button { width: auto; padding: .4rem .6rem; border: 1px solid var(--life-line); border-radius: 999px; color: var(--life-muted); background: transparent; cursor: pointer; font-size: .74rem; }
+[data-addon-id="petey-life"] .life-build-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+[data-addon-id="petey-life"] .secondary-button { padding: .65rem; border: 1px solid var(--life-line); border-radius: .65rem; color: var(--life-ink); background: transparent; cursor: pointer; }
+[data-addon-id="petey-life"] button:disabled { opacity: .48; cursor: not-allowed; }
+[data-addon-id="petey-life"] .life-journal-heading { display: flex; justify-content: space-between; color: var(--life-muted); font-size: .75rem; }
+[data-addon-id="petey-life"] .life-journal ol { display: grid; gap: .7rem; max-height: 12rem; overflow: auto; margin: .8rem 0 0; padding: 0; list-style: none; }
+[data-addon-id="petey-life"] .life-journal li { padding-left: .75rem; border-left: 2px solid rgba(170,124,247,.45); color: var(--life-muted); font-size: .8rem; line-height: 1.35; }
+
+@keyframes life-pulse { to { opacity: .45; } }
+@media (max-width: 900px) {
+  [data-addon-id="petey-life"] .life-layout { grid-template-columns: 1fr; }
+  [data-addon-id="petey-life"] .life-stage,
+  [data-addon-id="petey-life"] canvas { min-height: min(65vh, 31rem); }
+  [data-addon-id="petey-life"] .life-sidebar { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+@media (max-width: 580px) {
+  [data-addon-id="petey-life"] .life-header { align-items: flex-start; }
+  [data-addon-id="petey-life"] .life-presence { margin-top: .4rem; }
+  [data-addon-id="petey-life"] .life-modes { width: 100%; }
+  [data-addon-id="petey-life"] .life-mode { flex: 1; min-width: 0; }
+  [data-addon-id="petey-life"] .life-stage,
+  [data-addon-id="petey-life"] canvas { min-height: 25rem; }
+  [data-addon-id="petey-life"] .life-sidebar { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-addon-id="petey-life"] .life-presence.busy .life-presence-dot { animation: none; }
+}
